@@ -1,0 +1,46 @@
+<aura:component access="global" controller="CustomTimeZone" implements="force:lightningQuickAction,force:hasRecordId">
+    
+    <aura:attribute name="hours" type="List" default="" />
+        
+    <aura:attribute name="hoursList" type="List"/>
+    <aura:attribute name="userList" type="List"/>
+    <aura:attribute name="userTimeStr" type="String"/>
+    <aura:attribute name="contactTimeStr" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <div class="slds-grid slds-gutters slds-wrap">
+        <div class="slds-col slds-size_6-of-12 slds-p-bottom_medium">
+            <span>{!v.userTimeStr}</span>
+        </div>
+        <div class="slds-col slds-size_6-of-12 slds-p-bottom_medium">
+            <span>{!v.contactTimeStr}</span>
+        </div>
+        <div class="slds-col slds-size_1-of-6">
+        </div>
+        <div class="slds-col slds-size_1-of-6">
+            <aura:iteration items="{!v.userList}" var="hour">
+                <tr scope="row">
+      <div class="hours slds-size_6-of-12">              
+                    <div>{!hour}</div>
+                    </div>
+                </tr>
+            </aura:iteration>
+        </div> 
+        <div class="slds-col slds-size_1-of-6">
+        </div>
+        <div class="slds-col slds-size_1-of-6">
+        </div>
+        <div class="slds-col slds-size_1-of-6">
+            <table id="table"> </table>
+            <!-- aura:iteration items="{!v.hoursList}" var="hour">
+                <tr scope="row">
+                    <div class="hours slds-size_6-of-12">
+                    <div class="slds-table_striped">{!hour}</div>
+                    </div>
+                </tr>
+            </aura:iteration -->
+        </div> 
+        <div class="slds-col slds-size_1-of-6">
+        </div>
+    </div>
+</aura:component>
